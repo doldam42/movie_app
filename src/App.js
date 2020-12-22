@@ -1,33 +1,23 @@
 import react from "react";
 import PropTypes from "prop-types";
 
-function Food({ name , rating}) {
-	return (
-	<div>
-	<h1>I like to eat {name}!</h1>
-	<h3>{rating}/5</h3>
-	</div>
-	);
-	
-}
-
-Food.propTypes = {
-	name: PropTypes.string.isRequired,
-	rating: PropTypes.number.isRequired,
-}
-const foodILike = [
-	{id:1, name: "kimchi", rating:5},
-	{id:2, name: "ramen", rating:4.2},
-	{id:3, name: "pasta", rating: 3.8},
-	{id:4, name: "gookbab", rating:4.9},
-];
-
-function App() {
-  return (
-    <div>
-	{foodILike.map(dish =><Food key={dish.id} name={dish.name} rating={dish.rating} />)}
-	</div>
-  );
+class App extends react.Component {
+	state = {
+		count: 0
+	}
+	add = () => {
+		console.log("add");
+	}
+	minus = () => {
+		console.log("minus");
+	}
+	render() {
+		return <div>
+			<h1>The number is {this.state.count}</h1>
+			<button onClick={this.add}>Add</button>
+			<button onClick={this.minus}>Minus</button>
+		</div>;
+	}
 }
 
 export default App;
